@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, request
 
 app = Flask(__name__)
 
@@ -18,3 +18,10 @@ def get_post(post_id):
 @app.route('/uuid/<uuid:uuid>')
 def get_uuid(uuid):
     return str(uuid)
+
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    if request.method == 'POST':
+        return do_the_login()
+    else:
+        return show_the_login_form()
