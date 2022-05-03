@@ -1,6 +1,6 @@
-from flask import Flask, request
+from flask import Flask, request, render_template
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder='static', template_folder='templates')
 
 @app.route('/index')
 @app.route('/')
@@ -25,3 +25,7 @@ def login():
         return do_the_login()
     else:
         return show_the_login_form()
+
+@app.route('/hello')
+def hello():
+    return render_template('hello.html')
