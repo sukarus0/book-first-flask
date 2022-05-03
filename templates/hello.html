@@ -1,9 +1,14 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<title>hello</title>
-	</head>
-	<body>
-		<img src='/static/image/Dolomiti_lucane.png'>
-	</body>
-</html>
+{% extends 'layout/base.html' %}
+
+{% block head %}
+	<title>hello</title>
+{% endblock %}
+
+{% block body %}
+	{% if name %}
+		<h1>Hello, {{ name }}! </h1>
+	{% else %}
+		<h1>Hello, World!</h1>
+	{% endif %}
+	{% include 'hello2.html' %}
+{% endblock %}

@@ -27,5 +27,6 @@ def login():
         return show_the_login_form()
 
 @app.route('/hello')
-def hello():
-    return render_template('hello.html')
+@app.route('/hello/<name>')
+def hello(name=None):
+    return render_template('hello.html', name=name)
